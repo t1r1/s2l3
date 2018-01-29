@@ -17,9 +17,9 @@ export default class PersonalForm extends React.Component {
     render() {
         return (
             <div className="personal-form">
-                <input name="firstName" onChange={this.handleChangeForm}/>
-                <input name="lastName" onChange={this.handleChangeForm}/>
-                <input name="email" onChange={this.handleChangeForm}/>
+                <input name="firstName" onChange={this.handleChangeForm} placeholder="Имя"/>
+                <input name="lastName" onChange={this.handleChangeForm} placeholder="Фамилия"/>
+                <input name="email" onChange={this.handleChangeForm} placeholder="E-mail"/>
             </div>
         )
     }

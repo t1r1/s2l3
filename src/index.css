@@ -3,3 +3,51 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.container {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.step {
+  padding-right: 20px;
+  padding-bottom: 11px;
+  padding-top: 11px;
+}
+
+.step.step-clickable {
+  cursor: pointer;
+}
+
+
+.step__number {
+  background-color: #eee;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  -ms-flex: 0 0 20px;
+  flex: 0 0 20px;
+}
+
+.tab-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.step__number.step-selected {
+  background-color: greenyellow
+}
+
+.form-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.personal-form {
+  display: flex;
+  flex-direction: column;
+}
