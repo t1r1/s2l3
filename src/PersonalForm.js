@@ -5,29 +5,34 @@ import './index.css';
 export default class PersonalForm extends React.Component {
 
     handleChangeForm = (e) => {
-        this.props.onChangeForm(e.target.name, e.target.value)
+        let { onChangeForm } = this.props
+        onChangeForm(e.target.name, e.target.value)
     }
 
     render() {
+        let { firstName, lastName, email } = this.props
         return (
             <div className="personal-form">
                 <div>
                     <input 
                         name="firstName" 
                         onChange={this.handleChangeForm} 
-                        placeholder="Имя"/>
+                        placeholder="Имя"
+                        value={firstName}/>
                 </div>
                 <div>
                     <input 
                         name="lastName" 
                         onChange={this.handleChangeForm} 
-                        placeholder="Фамилия"/>
+                        placeholder="Фамилия"
+                        value={lastName}/>
                 </div>
                 <div>
                     <input 
                         name="email" 
                         onChange={this.handleChangeForm} 
-                        placeholder="E-mail"/>
+                        placeholder="E-mail"
+                        value={email}/>
                 </div>
             </div>
         )

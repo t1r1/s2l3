@@ -41,26 +41,25 @@ export default class App extends React.Component {
         else if (step === 2) {
             return cardNumber.length === 16
         }
-        
     }
 
     renderForm = () => {
         switch (this.state.step) {
             case 1: 
-                return 
+                return (
                     <PersonalForm 
                         firstName={this.state.firstName} 
                         lastName={this.state.lastName} 
                         email={this.state.email} 
                         onChangeForm={this.handleChangeForm} 
-                    />
+                    />)
             case 2:
-                return 
+                return (
                     <CardForm 
                         cardNumber={this.state.cardNumber} 
                         onChangeForm={this.handleChangeForm} 
                         onChangeTimeOver={this.handleChangeTimeOver} 
-                    />
+                    />)
             case 3:
                 return 'Поздравляем!'
             default: 
