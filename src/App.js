@@ -13,39 +13,33 @@ export default class App extends React.Component {
             firstName: '',
             lastName: '',
             email: '',
-            cardNumber: '',
-            buttonDisabled: true
+            cardNumber: ''
         }
     }
-
 
     handleTabClick = (step) => {
         this.setState({step})
     }
 
     handleChangeForm = (key, value) => {
-        let obj = {}
-        obj[key] = value
-        this.setState(obj)
+        this.setState({[key]: value})
     }
 
     handleClickNextForm = () => {
-        let {step} = this.state
+        let { step } = this.state
         step++
         this.setState({step})
-       
     }
 
     isFormCommitable = () => {
-        console.log('isFormCommitable')
-        let {step} = this.state 
-        let state = this.state 
+        let { step } = this.state 
+        let { firstName, lastName, email, cardNumber } = this.state 
        
         if (step === 1) {
-            return state.firstName !== '' && state.lastName !== '' && state.email !== '' && state.email.includes('@')
+            return firstName !== '' && lastName !== '' && email !== '' && email.includes('@')
         }
-        if (step === 2) {
-            return state.cardNumber.length === 16
+        else if (step === 2) {
+            return cardNumber.length === 16
         }
         
     }
@@ -53,9 +47,20 @@ export default class App extends React.Component {
     renderForm = () => {
         switch (this.state.step) {
             case 1: 
-                return <PersonalForm firstName={this.state.firstName} lastName={this.state.lastName} email={this.state.email} onChangeForm={this.handleChangeForm} />
+                return 
+                    <PersonalForm 
+                        firstName={this.state.firstName} 
+                        lastName={this.state.lastName} 
+                        email={this.state.email} 
+                        onChangeForm={this.handleChangeForm} 
+                    />
             case 2:
-                return <CardForm cardNumber={this.state.cardNumber} onChangeForm={this.handleChangeForm} onChangeTimeOver={this.handleChangeTimeOver} />
+                return 
+                    <CardForm 
+                        cardNumber={this.state.cardNumber} 
+                        onChangeForm={this.handleChangeForm} 
+                        onChangeTimeOver={this.handleChangeTimeOver} 
+                    />
             case 3:
                 return 'Поздравляем!'
             default: 
@@ -70,21 +75,21 @@ export default class App extends React.Component {
                 <div className="tab-panel">
                     <Step 
                         number={1} 
-                        clickable={this.state.step > 1} 
+                        isClickable={this.state.step > 1} 
                         isSelected={this.state.step === 1} 
                         onClick={this.handleTabClick}>
                         Personal Information
                     </Step>
                     <Step 
                         number={2} 
-                        clickable={this.state.step > 2} 
+                        isClickable={this.state.step > 2} 
                         isSelected={this.state.step === 2} 
                         onClick={this.handleTabClick}>
                         Card Information
                     </Step>
                     <Step 
                         number={3} 
-                        clickable={this.state.step > 3} 
+                        isClickable={this.state.step > 3} 
                         isSelected={this.state.step === 3} 
                         onClick={this.handleTabClick}>
                         Finish
@@ -93,7 +98,12 @@ export default class App extends React.Component {
                 <div className="form-content">
                     <div>{this.renderForm()}</div>
                     <div className="button-panel">
-                        <button className="button-next" onClick={this.handleClickNextForm} disabled={this.state.buttonDisabled}>Next</button>
+                        <button 
+                            className="button-next" 
+                            onClick={this.handleClickNextForm} 
+                            disabled={!this.isFormCommitable()}>
+                            Next
+                        </button>
                     </div>
                 </div>
             </div>

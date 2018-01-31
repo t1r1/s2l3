@@ -9,45 +9,44 @@ body {
   width: 600px;
 }
 
-.step {
-  padding-right: 20px;
-  padding-bottom: 11px;
-  padding-top: 11px;
-}
-
-.step.step-clickable {
-  cursor: pointer;
-}
-
-
-.step__number {
-  background-color: #eee;
-  padding: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  -ms-flex: 0 0 20px;
-  flex: 0 0 20px;
-}
-
 .tab-panel {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.step__number.step-selected {
-  background-color: greenyellow
+  margin: 20px 0;
 }
 
 .form-content {
-  display: flex;
-  flex-direction: row;
+  padding: 0 20px;
 }
 
 .personal-form {
-  display: flex;
-  flex-direction: column;
+  margin-top: 15px;
+} 
+
+.form-content input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 12px;
 }
+
+.button-next {
+  display: block;
+  padding: 10px 39px;
+  cursor: pointer;
+  background-color: lightgreen;
+}
+
+.button-panel {
+  margin-top: 10px;
+}
+
+.button-next:disabled {
+  background-color: #eeeeee;
+}
+
+.congrats {
+  margin: 20px 0;
+}
+
+
